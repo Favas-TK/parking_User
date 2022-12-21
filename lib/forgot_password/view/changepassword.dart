@@ -26,10 +26,13 @@ class ChangePassword extends StatelessWidget {
             alignment: Alignment.center,
             padding: const EdgeInsets.all(50),
             child: Column(
-              children:  [
-                SvgPicture.asset('assets/images/Logo.svg',height: .3.sw, 
-                  matchTextDirection: true,),
-                 Text(
+              children: [
+                SvgPicture.asset(
+                  'assets/images/Logo.svg',
+                  height: .3.sw,
+                  matchTextDirection: true,
+                ),
+                Text(
                   'Login',
                   style: TextStyle(
                     color: Colors.black,
@@ -70,7 +73,8 @@ class ChangePassword extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: MaterialButton(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25)),
+                borderRadius: BorderRadius.circular(25),
+              ),
               highlightElevation: 0,
               textColor: Colors.white,
               color: const Color.fromARGB(255, 235, 219, 174),
@@ -79,7 +83,7 @@ class ChangePassword extends StatelessWidget {
                 style: TextStyle(color: Colors.black),
               ),
               onPressed: () {
-                 Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const NotifyPage(),

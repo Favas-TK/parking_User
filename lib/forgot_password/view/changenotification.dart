@@ -11,7 +11,7 @@ class NotifyPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
-         // crossAxisAlignment: CrossAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
@@ -50,7 +50,12 @@ class NotifyPage extends StatelessWidget {
                   style: TextStyle(color: Colors.black, fontSize: 20),
                 ),
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Login(),), (route) => false);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Login(),
+                      ),
+                      (route) => false,);
                   // Navigator.pushReplacement(
                   //   context,
                   //   MaterialPageRoute <dynamic>(

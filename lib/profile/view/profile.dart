@@ -316,28 +316,19 @@ class Profile extends StatelessWidget {
                 ),
                 onPressed: () {
                   showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
                     context: context,
                     builder: (context) {
                       return Container(
-                        // height: 200.0,
-                        // decoration: new BoxDecoration(
-                        //   color: Colors.red,
-                        //   borderRadius: BorderRadius.vertical(
-                        //       bottom: Radius.elliptical(
-                        //           MediaQuery.of(context).size.width, 100.0)),
-                        //  ),
-                        // decoration: const BoxDecoration(
-                        //   boxShadow: [
-                        //     BoxShadow(
-                        //      color: Colors.white,
-                        //      offset: Offset(0, 10),
-                        //     ),
-                        //   ],
-                        //   borderRadius: BorderRadius.only(
-                        //     topLeft: Radius.circular(250),
-                        //   ),
-                        // ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(39.r),
+                            topRight: Radius.circular(39.r),
+                          ),
+                          color: Colors.white,
+                        ),
                         height: MediaQuery.of(context).size.height / 3,
+                        width: 452.w,
                         child: Padding(
                           padding: MediaQuery.of(context).viewInsets,
                           child: Column(

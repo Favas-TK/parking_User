@@ -1,7 +1,7 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
-import 'package:floating_bottom_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:parking_user/bookmark/view/bookmark.dart';
+import 'package:parking_user/homepage/view/homepage.dart';
 import 'package:parking_user/mybooking/view/mybooking.dart';
 import 'package:parking_user/profile/profile.dart';
 
@@ -21,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   final List<Widget> _widgets = [
-    const Text('HOME'),
+    const HomePage(),
     const MyBooking(),
     const Text('MAP'),
     const Booking(),

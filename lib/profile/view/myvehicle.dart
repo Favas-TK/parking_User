@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:parking_user/profile/view/widget/vehicle.dart';
 
-class MyVehicle extends StatelessWidget {
+class MyVehicle extends StatefulWidget {
   const MyVehicle({super.key});
 
+  @override
+  State<MyVehicle> createState() => _MyVehicleState();
+}
+
+class _MyVehicleState extends State<MyVehicle> {
+  String selected = 'First';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +52,36 @@ class MyVehicle extends StatelessWidget {
           ),
         ),
       ),
+      body: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  selected = 'First';
+                });
+              },
+              child: Vehicle(
+                vcl_name: 'Toyota Labnd cruiser',
+                vcl_no: 'KL18 3496',
+                clr: selected == 'First' ? Colors.black : Colors.transparent,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  selected = 'Second';
+                });
+              },
+              child: Vehicle(
+                vcl_name: 'Maruthi Suzuki Alto',
+                vcl_no: 'KL18 5467',
+                clr: selected == 'Second' ? Colors.black : Colors.transparent,
+              ),
+            ),
+           
+           
+          ],
+        ),
     );
   }
 }

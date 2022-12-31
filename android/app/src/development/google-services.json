@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "627920832049",
+    "project_id": "parking-bay-b9b45",
+    "storage_bucket": "parking-bay-b9b45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627920832049:android:13d9289f37f115983c7710",
+        "android_client_info": {
+          "package_name": "com.baabtra.parking_user.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "627920832049-qtsoj8ljancnv0fi68ii1to7b80ffhct.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcwzoKK8BzYh-qbg7Clmrv23EUrb4rnLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "627920832049-qtsoj8ljancnv0fi68ii1to7b80ffhct.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

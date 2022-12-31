@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:parking_user/profile/view/widget/notification_widget.dart';
+
+
 
 class Notificationn extends StatelessWidget {
   const Notificationn({super.key});
@@ -44,6 +48,36 @@ class Notificationn extends StatelessWidget {
             ),
           ),
         ),
+      ),
+       body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Today'),
+          ),
+          Notifictn_wdgt(
+            name: 'Payment Successful!',
+            data: 'Parking booking at portaly was succes',
+            icn: FontAwesomeIcons.circleCheck,
+            clr: Colors.green,
+          ),
+          Notifictn_wdgt(
+            name: 'Payment Failed!',
+            data: 'You have canced parking',
+            icn: FontAwesomeIcons.circleXmark,
+            clr: Colors.red,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Yesterday'),
+          ),
+          Notifictn_wdgt(
+            name: 'Payment Successful!',
+            data: 'Parking booking at portaly was succes',
+            icn: FontAwesomeIcons.circleCheck,
+            clr: Colors.green,
+          ),
+        ],
       ),
     );
   }

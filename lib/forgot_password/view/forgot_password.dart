@@ -17,7 +17,6 @@ class ForgotPassword extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: Color.fromARGB(255, 235, 219, 174),
-                  offset: Offset(0, 10),
                 ),
               ],
               borderRadius: BorderRadius.only(
@@ -27,10 +26,13 @@ class ForgotPassword extends StatelessWidget {
             alignment: Alignment.center,
             padding: const EdgeInsets.all(50),
             child: Column(
-              children:  [
-                 SvgPicture.asset('assets/images/Logo.svg',height: .3.sw, 
-                  matchTextDirection: true,),
-                 Text(
+              children: [
+                SvgPicture.asset(
+                  'assets/images/Logo.svg',
+                  height: .3.sw,
+                  matchTextDirection: true,
+                ),
+                Text(
                   'Sign Up',
                   style: TextStyle(
                     color: Colors.black,
@@ -57,10 +59,13 @@ class ForgotPassword extends StatelessWidget {
               style: TextStyle(fontSize: 15),
             ),
           ),
-          const SizedBox(height: 25,),
+          const SizedBox(
+            height: 25,
+          ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: SizedBox(height: 50,
+            child: SizedBox(
+              height: 50,
               child: MaterialButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25)),

@@ -32,8 +32,8 @@ class _SignUpState extends State<SignUp> {
                 builder: (context) => Login(),
               ),
             );
-          }else if(state is SignUpFailed){
-             ScaffoldMessenger.of(context).showSnackBar(
+          } else if (state is SignUpFailed) {
+            ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(state.message),
               ),
@@ -50,7 +50,6 @@ class _SignUpState extends State<SignUp> {
                     boxShadow: [
                       BoxShadow(
                         color: Color.fromARGB(255, 235, 219, 174),
-                        offset: Offset(0, 10),
                       ),
                     ],
                     borderRadius: BorderRadius.only(

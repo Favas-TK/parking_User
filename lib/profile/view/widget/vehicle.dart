@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Vehicle extends StatefulWidget {
-  Vehicle(
-      {super.key,
-      this.icnbtn,
-      required this.vcl_name,
-      required this.vcl_no,
-      this.clr});
+  Vehicle({
+    super.key,
+    this.icnbtn,
+    required this.vcl_name,
+    required this.vcl_no,
+    this.clr,
+  });
   IconButton? icnbtn;
   String? vcl_name;
   String? vcl_no;
@@ -30,12 +30,15 @@ class _VehicleState extends State<Vehicle> {
         height: 100.h,
         width: 350.w,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
-            color: Color.fromARGB(255, 230, 228, 228),
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: 10, color: Color.fromARGB(255, 121, 118, 118))
-            ]),
+          borderRadius: BorderRadius.circular(12.r),
+          color: const Color.fromARGB(255, 230, 228, 228),
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 10,
+              color: Color.fromARGB(255, 121, 118, 118),
+            )
+          ],
+        ),
         child: Column(
           children: [
             Padding(
@@ -48,7 +51,6 @@ class _VehicleState extends State<Vehicle> {
                 ),
                 title: Text(
                   widget.vcl_name.toString(),
-                  style: GoogleFonts.laila(fontSize: 16),
                 ),
                 subtitle: Text(widget.vcl_no.toString()),
                 trailing: Icon(

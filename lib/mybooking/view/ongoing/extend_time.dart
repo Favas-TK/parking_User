@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parking_user/mybooking/widget/mycard.dart';
 
 class ExtendTime extends StatefulWidget {
   const ExtendTime({super.key});
@@ -10,26 +12,62 @@ class ExtendTime extends StatefulWidget {
 }
 
 class _ExtendTimeState extends State<ExtendTime> {
-  int _count = 0;
+  double _currentValue = 0;
 
-  void _incrementcount() {
+  setEndPressed(double value) {
     setState(() {
-      _count++;
+      _currentValue = value;
     });
   }
 
-  void _decrement() {
-    setState(() {
-      _count--;
-    });
+  Widget buildFloatingButton(String text, VoidCallback callback) {
+    const roundTextStyle = TextStyle(fontSize: 16, color: Colors.white);
+    return FloatingActionButton(
+      onPressed: callback,
+      child: Text(text, style: roundTextStyle),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 76, 150, 115),
-        title: const Text('Extend Parking Time'),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios_new,
+                  color: Colors.black,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 50.w, bottom: .01.sh),
+              ),
+              Text(
+                textAlign: TextAlign.center,
+                'Extend Parking Time ',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: .050.sw,
+                ),
+              ),
+            ],
+          ),
+          backgroundColor: const Color.fromARGB(255, 235, 219, 174),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(150),
+            ),
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -38,53 +76,91 @@ class _ExtendTimeState extends State<ExtendTime> {
             child: Text(
               'Add Time',
               style: GoogleFonts.radioCanada(
-                  fontSize: 16.sp, fontWeight: FontWeight.w500,),
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.only(left: 20),
-            height: 60.h,
-            width: 120.w,
-            decoration: BoxDecoration(boxShadow: const [
-              BoxShadow(
-                  blurRadius: 7, color: Color.fromARGB(153, 138, 138, 138),)
-            ], borderRadius: BorderRadius.circular(10.r), color: Colors.white,),
-            child: Row(
-              children: [
-                SizedBox(
-                  height: 30.h,
-                  width: 38.w,
-                  child: OutlinedButton(
-                      onPressed: _decrement, child: const Text('-'),),
+          Column(
+            children: <Widget>[
+              SizedBox(
+                height: 80,
+                child: Column(
+                  children: [
+                    FAProgressBar(
+                      currentValue: _currentValue,
+                      displayText: 'Hr',
+                      progressGradient: LinearGradient(
+                        colors: [
+                          Colors.blue.withOpacity(0.75),
+                          Colors.green.withOpacity(0.75),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                Text('$_count'),
-                SizedBox(
-                  height: 30.h,
-                  width: 38.w,
-                  child: OutlinedButton(
-                      style: const ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(
-                              Color.fromARGB(255, 76, 150, 115),),),
-                      onPressed: _incrementcount,
-                      child: const Text('+'),),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 10),
+                child: Row(
+                  children: <Widget>[
+                    buildFloatingButton('1', () => setEndPressed(1)),
+                    buildFloatingButton('2', () => setEndPressed(20)),
+                    buildFloatingButton('3', () => setEndPressed(80.5)),
+                    buildFloatingButton('4', () => setEndPressed(90.25)),
+                    buildFloatingButton('5', () => setEndPressed(100)),
+                    buildFloatingButton('6', () => setEndPressed(140)),
+                    buildFloatingButton('7', () => setEndPressed(90.25)),
+                    buildFloatingButton('8', () => setEndPressed(100)),
+                    buildFloatingButton('9', () => setEndPressed(140)),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 14, top: 5),
             child: Text(
               'Choose Payment Method',
               style: GoogleFonts.radioCanada(
-                  fontSize: 16.sp, fontWeight: FontWeight.w500,),
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
-          ElevatedButton(
-              style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(
-                      Color.fromARGB(255, 76, 150, 115),),),
-              onPressed: () {},
-              child: const Text('Razoo Pay'),)
+          SizedBox(
+            height: 10,
+          ),
+          MyCards(),
+          SizedBox(
+            height: 50.h,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SizedBox(
+              height: 50,
+              width: 320,
+              child: MaterialButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                highlightElevation: 0,
+                textColor: Colors.white,
+                color: const Color.fromARGB(255, 235, 219, 174),
+                child: const Text(
+                  'Confirm Pyment',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                onPressed: () {},
+              ),
+            ),
+          ),
         ],
       ),
     );

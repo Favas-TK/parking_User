@@ -52,36 +52,38 @@ class _MyVehicleState extends State<MyVehicle> {
           ),
         ),
       ),
-      body: Column(
-          children: [
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = 'First';
-                });
-              },
-              child: Vehicle(
-                vcl_name: 'Toyota Labnd cruiser',
-                vcl_no: 'KL18 3496',
-                clr: selected == 'First' ? Colors.black : Colors.transparent,
+      body: Card(
+        child: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selected = 'First';
+                  });
+                },
+                child: Vehicle(
+                  vcl_name: 'Toyota Labnd cruiser',
+                  vcl_no: 'KL18 3496',
+                  clr: selected == 'First' ? Colors.black : Colors.transparent,
+                ),
               ),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  selected = 'Second';
-                });
-              },
-              child: Vehicle(
-                vcl_name: 'Maruthi Suzuki Alto',
-                vcl_no: 'KL18 5467',
-                clr: selected == 'Second' ? Colors.black : Colors.transparent,
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    selected = 'Second';
+                  });
+                },
+                child: Vehicle(
+                  vcl_name: 'Maruthi Suzuki Alto',
+                  vcl_no: 'KL18 5467',
+                  clr: selected == 'Second' ? Colors.black : Colors.transparent,
+                ),
               ),
-            ),
-           
-           
-          ],
-        ),
+             
+             
+            ],
+          ),
+      ),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:parking_user/bookingconfirmation/widgets/card_widget.dart';
 
 class MyCard extends StatelessWidget {
   const MyCard({super.key});
@@ -45,6 +47,11 @@ class MyCard extends StatelessWidget {
           ),
         ),
       ),
+      body:  Card_Widget(
+          name: 'Paypal',
+          data: 'xxxx xxxx xxxx 2354',
+          icn: FontAwesomeIcons.paypal,
+          clr: Colors.blue),
     );
   }
 }

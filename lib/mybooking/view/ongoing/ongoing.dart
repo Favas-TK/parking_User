@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:parking_user/mybooking/view/ongoing/extend_time.dart';
 
 import 'package:parking_user/mybooking/view/ongoing/time.dart';
 
@@ -100,7 +101,11 @@ class OnGoing extends StatelessWidget {
                     highlightElevation: 0,
                     color: const Color.fromARGB(255, 235, 219, 174),
                     onPressed: () {
-                      Get.to(const Time());
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Time(),
+                          ));
                     },
                     child: const Text(
                       'View Time',

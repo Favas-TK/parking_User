@@ -16,7 +16,7 @@ class ChangePassword extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: Color.fromARGB(255, 235, 219, 174),
-                  offset: Offset(0, 10),
+                  
                 ),
               ],
               borderRadius: BorderRadius.only(

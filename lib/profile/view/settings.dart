@@ -133,7 +133,7 @@ class Settings extends StatelessWidget {
                     children: [
                       ListTile(
                         leading: const Icon(
-                          FontAwesomeIcons.language,
+                          Icons.language,
                           color: Colors.white,
                         ),
                         textColor: Colors.white,

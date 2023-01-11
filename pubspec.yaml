@@ -9,14 +9,18 @@ environment:
 
 dependencies:
   bloc: ^8.1.0
+  calendar_view: ^1.0.1
   cloud_firestore: ^4.3.1
   convex_bottom_bar: ^3.1.0+1
+  curved_navigation_bar: ^1.0.3
   firebase_auth: ^4.1.0
   firebase_core: ^2.1.1
   floating_bottom_bar: ^0.0.1
   flutter:
     sdk: flutter
+  flutter_animation_progress_bar: ^2.3.1
   flutter_bloc: ^8.1.1
+  flutter_datetime_picker: ^1.5.1
   flutter_localizations:
     sdk: flutter
   flutter_map: ^3.0.0
@@ -25,10 +29,14 @@ dependencies:
   flutter_svg: ^1.1.6
   font_awesome_flutter: ^10.3.0
   get: ^4.6.5
+  getwidget: ^3.0.1
   google_fonts: ^3.0.1
   google_maps_flutter: ^2.2.2
   intl: ^0.17.0
   pin_entry_text_field: ^0.1.4
+  shared_preferences: ^2.0.15
+  syncfusion_flutter_calendar: ^20.4.42
+  table_calendar: ^3.0.8
 
 dev_dependencies:
   bloc_test: ^9.1.0

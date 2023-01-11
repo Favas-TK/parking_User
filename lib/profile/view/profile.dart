@@ -85,210 +85,251 @@ class Profile extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10),
-                    child: Card(
-                      shadowColor: Colors.redAccent,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      color: const Color.fromARGB(255, 210, 212, 205),
-                      child: Column(
-                        children: [
-                          ListTile(
-                            leading: const Icon(
-                              Icons.person,
-                              color: Colors.white,
-                            ),
-                            textColor: Colors.white,
-                            title: const Text(
-                              'My Profile',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            trailing: IconButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const MyProfile(),
-                                  ),
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.navigate_next,
+                    child: GestureDetector(
+                      child: Card(
+                        shadowColor: Colors.redAccent,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        color: const Color.fromARGB(255, 210, 212, 205),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: const Icon(
+                                Icons.person,
                                 color: Colors.white,
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Card(
-                      shadowColor: Colors.redAccent,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      color: const Color.fromARGB(255, 210, 212, 205),
-                      child: Column(
-                        children: [
-                          ListTile(
-                            leading: const Icon(
-                              Icons.credit_card,
-                              color: Colors.white,
-                            ),
-                            textColor: Colors.white,
-                            title: const Text(
-                              'My Cards',
-                              style: TextStyle(
+                              textColor: Colors.white,
+                              title: const Text(
+                                'My Profile',
+                                style: TextStyle(
                                   color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            trailing: IconButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const MyCard(),
-                                  ),
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.navigate_next,
-                                color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              trailing: IconButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const MyProfile(),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.navigate_next,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyProfile(),
+                        ),
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10),
-                    child: Card(
-                      shadowColor: Colors.redAccent,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      color: const Color.fromARGB(255, 210, 212, 205),
-                      child: Column(
-                        children: [
-                          ListTile(
-                            leading: const Icon(
-                              FontAwesomeIcons.car,
-                              color: Colors.white,
+                    child: GestureDetector(
+                      child: Card(
+                        shadowColor: Colors.redAccent,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        color: const Color.fromARGB(255, 210, 212, 205),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: const Icon(
+                                Icons.credit_card,
+                                color: Colors.white,
+                              ),
+                              textColor: Colors.white,
+                              title: const Text(
+                                'My Cards',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              trailing: IconButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const MyCard(),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.navigate_next,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
-                            textColor: Colors.white,
-                            title: const Text(
-                              'My Vehicles',
-                              style: TextStyle(
+                          ],
+                        ),
+                      ),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyCard(),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: GestureDetector(
+                      child: Card(
+                        shadowColor: Colors.redAccent,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        color: const Color.fromARGB(255, 210, 212, 205),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: const Icon(
+                                FontAwesomeIcons.car,
+                                color: Colors.white,
+                              ),
+                              textColor: Colors.white,
+                              title: const Text(
+                                'My Vehicles',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              trailing: IconButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const MyVehicle(),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.navigate_next,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyVehicle(),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: GestureDetector(
+                      child: Card(
+                        shadowColor: Colors.redAccent,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        color: const Color.fromARGB(255, 210, 212, 205),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: const Icon(
+                                Icons.notifications,
+                                color: Colors.white,
+                              ),
+                              textColor: Colors.white,
+                              title: const Text(
+                                'Notification',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              trailing: IconButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const Notificationn(),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.navigate_next,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Notificationn(),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: GestureDetector(
+                      child: Card(
+                        shadowColor: Colors.redAccent,
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        color: const Color.fromARGB(255, 210, 212, 205),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              leading: const Icon(
+                                Icons.settings,
+                                color: Colors.white,
+                              ),
+                              textColor: Colors.white,
+                              title: const Text(
+                                'Settings',
+                                style: TextStyle(
                                   color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            trailing: IconButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const MyVehicle(),
-                                  ),
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.navigate_next,
-                                color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              trailing: IconButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Settings(),
+                                    ),
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.navigate_next,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Card(
-                      shadowColor: Colors.redAccent,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      color: const Color.fromARGB(255, 210, 212, 205),
-                      child: Column(
-                        children: [
-                          ListTile(
-                            leading: const Icon(
-                              Icons.notifications,
-                              color: Colors.white,
-                            ),
-                            textColor: Colors.white,
-                            title: const Text(
-                              'Notification',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            trailing: IconButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Notificationn(),
+                      onTap: () =>  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Settings(),
+                                    ),
                                   ),
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.navigate_next,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Card(
-                      shadowColor: Colors.redAccent,
-                      elevation: 0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      color: const Color.fromARGB(255, 210, 212, 205),
-                      child: Column(
-                        children: [
-                          ListTile(
-                            leading: const Icon(
-                              Icons.settings,
-                              color: Colors.white,
-                            ),
-                            textColor: Colors.white,
-                            title: const Text(
-                              'Settings',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            trailing: IconButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Settings(),
-                                  ),
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.navigate_next,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                   ),
                 ],

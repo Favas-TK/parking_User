@@ -1,16 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:parking_user/login/view/login.dart';
+import 'package:parking_user/profile/profile.dart';
 import 'package:parking_user/profile/view/mycard.dart';
 import 'package:parking_user/profile/view/myprofile.dart';
 import 'package:parking_user/profile/view/myvehicle.dart';
 import 'package:parking_user/profile/view/notification.dart';
-import 'package:parking_user/profile/view/settings.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({super.key});
+   Profile({super.key});
 
+ final users = FirebaseFirestore.instance.collection('Users');
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,19 +63,23 @@ class Profile extends StatelessWidget {
           ),
           Column(
             children: [
-              const CircleAvatar(
-                radius: 50,
-                backgroundImage: NetworkImage(
-                  'https://th.bing.com/th/id/OIP.HhQwBlSw5S3JURg2BWGZZgHaLy?pid=ImgDet&rs=1',
+              GestureDetector(
+                
+                child: const CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(
+                    'https://th.bing.com/th/id/OIP.HhQwBlSw5S3JURg2BWGZZgHaLy?pid=ImgDet&rs=1',
+                  ),
+                  // ignore: prefer_const_literals_to_create_immutables
+                  // child: Align(
+                  //   alignment: Alignment.bottomRight,
+                  //   child: Icon(
+                  //     Icons.edit,
+                  //     color: Colors.black,
+                  //   ),
+                  // ),
+                  
                 ),
-                // ignore: prefer_const_literals_to_create_immutables
-                // child: Align(
-                //   alignment: Alignment.bottomRight,
-                //   child: Icon(
-                //     Icons.edit,
-                //     color: Colors.black,
-                //   ),
-                // ),
               ),
               const Text(
                 'favas',
@@ -311,7 +319,7 @@ class Profile extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const Settings(),
+                                      builder: (context) =>  UserSettings(),
                                     ),
                                   );
                                 },
@@ -327,7 +335,7 @@ class Profile extends StatelessWidget {
                       onTap: () =>  Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const Settings(),
+                                      builder: (context) =>  UserSettings(),
                                     ),
                                   ),
                     ),

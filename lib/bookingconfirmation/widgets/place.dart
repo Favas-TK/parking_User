@@ -18,7 +18,7 @@ class Places extends StatelessWidget {
           ),
           Details(
             name: 'reserverd Date:',
-            details: 'JAn,18,2022',
+            details: 'January,18,2023',
             name2: 'Time:',
             details2: '6:30 PM',
           ),

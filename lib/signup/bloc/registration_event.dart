@@ -12,4 +12,5 @@ class RegisterEvent extends RegistrationEvent {
   String name;
   String mail;
   String passwrd;
+  
 }

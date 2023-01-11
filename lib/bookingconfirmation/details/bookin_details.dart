@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:parking_user/bookingconfirmation/details/place.dart';
+import 'package:parking_user/bookingconfirmation/view/parking_ticket.dart';
 import 'package:parking_user/bookingconfirmation/widgets/card_widget.dart';
+import 'package:parking_user/bookingconfirmation/widgets/place.dart';
 
 class BookingDetails extends StatelessWidget {
   const BookingDetails({super.key});
@@ -146,6 +147,13 @@ class BookingDetails extends StatelessWidget {
                   style: TextStyle(color: Colors.black),
                 ),
                 onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => Done(),
+                  //   ),
+                  // );
+
                   showModalBottomSheet(
                     backgroundColor: Colors.transparent,
                     context: context,
@@ -153,27 +161,97 @@ class BookingDetails extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(20),
                         child: Container(
-                          margin: EdgeInsets.only(bottom: 300),
+                          margin: EdgeInsets.only(bottom: 10),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
-                               Radius.circular(39.r),
-                             
+                              Radius.circular(39.r),
                             ),
                             color: Colors.white,
                           ),
-                          //  height: MediaQuery.of(context).size.height,
-                          // width: 452.w,
-                          // child: Padding(
-                          //   padding: MediaQuery.of(context).viewInsets,
-                          //   child: Column(
-                          //     children: [
-                          //       SizedBox(
-                          //         height: 10,
-                          //       ),
-                          //       // Divider(thickness: 5,color: Color.fromARGB(127, 0, 0, 0),),
-                          //     ],
-                          //   ),
-                          // ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'assets/images/check_img.png',
+                                width: 150,
+                              ),
+                              Text(
+                                'Successful',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: .050.sw,
+                                ),
+                              ),
+                              Text(
+                                  'Success fully made Payment for your parking'),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                child: SizedBox(
+                                  width: 300.h,
+                                  height: 50.h,
+                                  child: MaterialButton(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
+                                    highlightElevation: 0,
+                                    textColor: Colors.white,
+                                    color: const Color.fromARGB(
+                                        255, 235, 219, 174),
+                                    child: Text(
+                                      'View Parking Ticket',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: .040.sw,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => ParkingTicket(),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 20),
+                                child: SizedBox(
+                                  width: 300.h,
+                                  height: 50.h,
+                                  child: MaterialButton(
+                                    shape: RoundedRectangleBorder(
+                                      side:
+                                          const BorderSide(color: Colors.black),
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
+                                    textColor: Colors.white,
+                                    child: Text(
+                                      'Cancel',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: .040.sw,
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },

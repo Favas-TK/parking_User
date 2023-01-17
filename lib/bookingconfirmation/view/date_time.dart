@@ -11,17 +11,6 @@ class DateTimes extends StatefulWidget {
   State<DateTimes> createState() => _DateTimesState();
 }
 
-List<String> list = <String>[
-  '1 hr',
-  '2 hr ',
-  '3 hr',
-  '4 hr',
-  '5 hr',
-  '6 hr',
-  '7 hr',
-];
-String dropdownValue = list.first;
-
 class _DateTimesState extends State<DateTimes> {
   DateTime selectedDate = DateTime.now();
   TimeOfDay selectedTime = TimeOfDay.now();
@@ -137,83 +126,6 @@ class _DateTimesState extends State<DateTimes> {
                     ),
                   const SizedBox(
                     height: 25,
-                  ),
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Text(
-                        'Choose Parking Time',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      DropdownButton<String>(
-                        value: dropdownValue,
-                        icon: const Icon(
-                          Icons.arrow_drop_down_sharp,
-                          size: 30,
-                        ),
-                        elevation: 16,
-                        style: GoogleFonts.abhayaLibre(
-                          fontSize: 21,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                        ),
-                        onChanged: (String? value) {
-                          setState(() {
-                            dropdownValue = value!;
-                          });
-                        },
-                        items:
-                            list.map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                      ),
-                    ],
-                  ),
-
-                  //      else{ SizedBox(
-                  //   height: 30.h,
-                  // ),}
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(color: Colors.black),
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        highlightElevation: 0,
-                        onPressed: () {},
-                        child: const Text(
-                          'Cancel',
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 30.w,
-                      ),
-                      MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        highlightElevation: 0,
-                        color: const Color.fromARGB(255, 235, 219, 174),
-                        onPressed: () {},
-                        child: const Text(
-                          'Save',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),

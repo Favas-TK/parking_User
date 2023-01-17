@@ -10,6 +10,7 @@ environment:
 dependencies:
   bloc: ^8.1.0
   calendar_view: ^1.0.1
+  carousel_slider: ^4.2.1
   cloud_firestore: ^4.3.1
   convex_bottom_bar: ^3.1.0+1
   curved_navigation_bar: ^1.0.3
@@ -40,6 +41,7 @@ dependencies:
   syncfusion_flutter_barcodes: ^20.4.43
   syncfusion_flutter_calendar: ^20.4.42
   table_calendar: ^3.0.8
+  uuid: ^3.0.7
   xml: ^6.1.0
 
 dev_dependencies:

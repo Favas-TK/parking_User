@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:parking_user/bookingconfirmation/details/create_booking.dart';
 import 'package:parking_user/bookingconfirmation/view/confirmation.dart';
 import 'package:parking_user/homepage/widget/vehiclechange.dart';
 import 'package:parking_user/homepage/widget/vehicles.dart';
@@ -75,7 +76,7 @@ class HomePage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Confirmation(),
+                            builder: (context) => CreateBooking(),
                           ),
                         );
                       },

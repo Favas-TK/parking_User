@@ -49,7 +49,9 @@ class Paymentss extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           const Text(
             'Select Payment Method',
             style: TextStyle(
@@ -97,7 +99,7 @@ class Paymentss extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>  Carddetails(),
+                        builder: (context) => Carddetails(),
                       ),
                     );
                   },

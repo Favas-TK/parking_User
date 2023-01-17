@@ -39,7 +39,7 @@ dependencies:
   pin_entry_text_field: ^0.1.4
   shared_preferences: ^2.0.15
   syncfusion_flutter_barcodes: ^20.4.43
-  syncfusion_flutter_calendar: ^20.4.42
+  syncfusion_flutter_calendar: ^20.4.43
   table_calendar: ^3.0.8
   uuid: ^3.0.7
   xml: ^6.1.0

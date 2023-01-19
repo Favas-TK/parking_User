@@ -22,7 +22,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   final List<Widget> _widgets = [
-    const HomePage(),
+     HomePage(),
     const MyBooking(),
     const Booking(),
      Profile(),

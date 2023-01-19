@@ -1,12 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:parking_user/bookingconfirmation/details/create_booking.dart';
-import 'package:parking_user/bookingconfirmation/view/confirmation.dart';
-import 'package:parking_user/homepage/widget/vehiclechange.dart';
-import 'package:parking_user/homepage/widget/vehicles.dart';
+import 'package:parking_user/homepage/view/nearby.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  TextEditingController searchcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +26,9 @@ class HomePage extends StatelessWidget {
                         const Text(
                           'Current Location',
                           style: TextStyle(
-                              color: Color.fromARGB(255, 108, 106, 106),
-                              fontWeight: FontWeight.bold),
+                            color: Color.fromARGB(255, 108, 106, 106),
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -45,13 +47,14 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 50,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextField(
+                      controller: searchcontroller,
                       cursorHeight: 25,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.search),
                         fillColor: Colors.white,
                         filled: true,
@@ -76,7 +79,9 @@ class HomePage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CreateBooking(),
+                            builder: (context) => NearBy(
+                              sortPlace: searchcontroller.text,
+                            ),
                           ),
                         );
                       },
@@ -86,27 +91,28 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 250.w),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => VehicleChange(),
-                          ));
-                    },
-                    child: const Text(
-                      'see all',
-                      style: TextStyle(
-                        color: Colors.black,
-                        decoration: TextDecoration.underline,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                VehicleType(),
+                // Padding(
+                //   padding: EdgeInsets.only(left: 250.w),
+                //   child: TextButton(
+                //     onPressed: () {
+                //       Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //           builder: (context) => VehicleChange(),
+                //         ),
+                //       );
+                //     },
+                //     child: const Text(
+                //       'see all',
+                //       style: TextStyle(
+                //         color: Colors.black,
+                //         decoration: TextDecoration.underline,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // VehicleType(),
                 Card(
                   child: Padding(
                     padding: const EdgeInsets.all(15),

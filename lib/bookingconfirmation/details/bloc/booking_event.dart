@@ -9,12 +9,12 @@ class AddBookingEvent extends BookingEvent {
     required this.vehicleName,
     required this.vehicleType,
     required this.mobileNumber,
-    required this.parkingTime,
+    //required this.parkingTime,
    
   });
   String vehicleNumber;
   String vehicleName;
   String vehicleType;
   String mobileNumber;
-  String parkingTime;
+ // String parkingTime;
 }

@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:parking_user/bookingconfirmation/details/create_booking.dart';
 import 'package:parking_user/bookingconfirmation/view/date_time.dart';
 import 'package:parking_user/bookingconfirmation/view/spotimage.dart';
 import 'package:parking_user/bookingconfirmation/widgets/facilities.dart';
@@ -20,15 +21,14 @@ class Confirmation extends StatefulWidget {
 }
 
 class _ConfirmationState extends State<Confirmation> {
-  final parkingAdd =
-      FirebaseFirestore.instance.collection('Parking_Area_Collection');
+
 
   final auth = FirebaseAuth.instance;
+   late final images = widget.parkingAxis['Spot_image'] as List;
 
   @override
   Widget build(BuildContext context) {
-    final images = widget.parkingAxis['Spot_image'] as List;
-    print(images);
+
     return Scaffold(
       appBar: AppBar(
         // toolbarHeight: 30.h,
@@ -81,8 +81,9 @@ class _ConfirmationState extends State<Confirmation> {
                     Container(
                   height: 600,
                   width: 200,
+                  
                   child: Image.network(
-                    widget.parkingAxis[itemIndex].toString(),
+                    images[itemIndex].toString(),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -105,9 +106,9 @@ class _ConfirmationState extends State<Confirmation> {
                   ),
                 ],
               ),
-              trailing: Text(
-                widget.parkingAxis['Slots'].toString(),
-              ),
+              // trailing: Text(
+              //   widget.parkingAxis['Slots'].toString(),
+              // ),
             ),
             const Divider(),
             Padding(
@@ -182,7 +183,7 @@ class _ConfirmationState extends State<Confirmation> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const DateTimes(),
+                          builder: (context) =>  DateTimes(),
                         ),
                       );
                     },

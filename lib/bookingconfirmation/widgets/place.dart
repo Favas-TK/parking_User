@@ -35,7 +35,7 @@ class Places extends StatelessWidget {
           
           ),),
            Details(
-            name: 'Vehicle Details:',
+            name: 'Cost:',
             details: 'Toyota(AFD 6397)',
             name2: 'Vehicle Type:',
             details2: 'Luxury seden',

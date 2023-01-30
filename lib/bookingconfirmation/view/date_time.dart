@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:parking_user/bookingconfirmation/view/payment.dart';
+import 'package:parking_user/bookingconfirmation/view/vehicle%20details.dart';
 
 class DateTimes extends StatefulWidget {
-  const DateTimes({super.key});
+  DateTimes({super.key});
 
-  @override
   State<DateTimes> createState() => _DateTimesState();
 }
 
@@ -79,9 +77,50 @@ class _DateTimesState extends State<DateTimes> {
     return format.format(dt);
   }
 
+  TextEditingController parkingTime = TextEditingController();
+
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: AppBar(
+          automaticallyImplyLeading: false,
+          centerTitle: true,
+          title: Row(
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios_new,
+                  color: Colors.black,
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 80),
+              ),
+              Text(
+                textAlign: TextAlign.center,
+                'Date Time',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: .050.sw,
+                ),
+              ),
+            ],
+          ),
+          backgroundColor: const Color.fromARGB(255, 235, 219, 174),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(150),
+            ),
+          ),
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -101,38 +140,59 @@ class _DateTimesState extends State<DateTimes> {
                 child: Text(getTime(selectedTime)),
               )
             else
-              const SizedBox(),
-            Card(
-              child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    width: double.infinity,
-                    child: MaterialButton(
-                      color: const Color.fromARGB(255, 235, 219, 174),
-                      onPressed: () {
-                        _selectedDateTime(context);
-                        showDateTime = true;
-                      },
-                      child: const Text('Selected Date and Time '),
+              Card(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      width: double.infinity,
+                      child: MaterialButton(
+                        color: const Color.fromARGB(255, 235, 219, 174),
+                        onPressed: () {
+                          _selectedDateTime(context);
+                          showDateTime = true;
+                        },
+                        child: const Text('Selected Date and Time '),
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 100.h,
-                  ),
-                  if (showDateTime)
-                    Text(
-                      getDateTime(),
+                    SizedBox(
+                      height: 50.h,
                     ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                ],
+                    if (showDateTime)
+                      Text(
+                        getDateTime(),
+                      ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    SizedBox(
+                      height: 40,
+                      child: TextFormField(
+                        keyboardType: TextInputType.number,
+                        controller: parkingTime,
+                        decoration: InputDecoration(
+                          labelText: 'Time needed for parking',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                        ),
+                        validator: (value) {
+                          if (value!.isEmpty ||
+                              !RegExp(r'^[+]*[(]{0,1}[0-9]{1-4}[)]{0-1}[-\s\./0-9]+$')
+                                  .hasMatch(value)) {
+                            return 'Invalid';
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
 
             SizedBox(
-              height: 300.h,
+              height: 200.h,
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -154,7 +214,7 @@ class _DateTimesState extends State<DateTimes> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Paymentss(),
+                        builder: (context) => VehicleDetails(),
                       ),
                     );
                   },

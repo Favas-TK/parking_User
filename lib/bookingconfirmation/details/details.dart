@@ -18,11 +18,19 @@ class Details extends StatelessWidget {
     return ListTile(
       title: Text(
         name,
-        style: const TextStyle(color: Colors.grey,fontSize: 10,fontWeight: FontWeight.bold),
+        style: const TextStyle(
+          color: Colors.grey,
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+        ),
       ),
       subtitle: Text(
         details,
-        style: const TextStyle(color: Colors.black,fontSize: 12,fontWeight: FontWeight.bold),
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 12,
+          fontWeight: FontWeight.bold,
+        ),
       ),
       trailing: Column(
         children: [
@@ -30,10 +38,17 @@ class Details extends StatelessWidget {
             padding: const EdgeInsets.only(top: 15),
             child: Text(
               name2,
-              style: const TextStyle(color: Colors.grey,fontSize: 10,fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 10,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          Text(details2,style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),),
+          Text(
+            details2,
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
         ],
       ),
     );

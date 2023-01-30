@@ -112,7 +112,7 @@ class Carddetails extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const BookingDetails(),
+                              builder: (context) =>  BookingDetails(),
                             ),
                           );
                         },

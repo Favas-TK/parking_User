@@ -63,32 +63,32 @@ class Profile extends StatelessWidget {
           ),
           Column(
             children: [
-              GestureDetector(
+              // GestureDetector(
                 
-                child: const CircleAvatar(
-                  radius: 50,
-                  backgroundImage: NetworkImage(
-                    'https://th.bing.com/th/id/OIP.HhQwBlSw5S3JURg2BWGZZgHaLy?pid=ImgDet&rs=1',
-                  ),
-                  // ignore: prefer_const_literals_to_create_immutables
-                  // child: Align(
-                  //   alignment: Alignment.bottomRight,
-                  //   child: Icon(
-                  //     Icons.edit,
-                  //     color: Colors.black,
-                  //   ),
-                  // ),
+              //   child: const CircleAvatar(
+              //     radius: 50,
+              //     backgroundImage: NetworkImage(
+              //       'https://th.bing.com/th/id/OIP.HhQwBlSw5S3JURg2BWGZZgHaLy?pid=ImgDet&rs=1',
+              //     ),
+              //     // ignore: prefer_const_literals_to_create_immutables
+              //     // child: Align(
+              //     //   alignment: Alignment.bottomRight,
+              //     //   child: Icon(
+              //     //     Icons.edit,
+              //     //     color: Colors.black,
+              //     //   ),
+              //     // ),
                   
-                ),
-              ),
-              const Text(
-                'favas',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              //   ),
+              // ),
+              // const Text(
+              //   'favas',
+              //   style: TextStyle(
+              //     color: Colors.black,
+              //     fontSize: 15,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
               Column(
                 children: [
                   Padding(

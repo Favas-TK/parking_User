@@ -41,7 +41,6 @@ class _CreateBookingState extends State<CreateBooking> {
 
   TextEditingController mobileNumber = TextEditingController();
 
- 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -57,7 +56,7 @@ class _CreateBookingState extends State<CreateBooking> {
             Navigator.push(
               context,
               MaterialPageRoute<dynamic>(
-                builder: (context) => VehicleDetails (),
+                builder: (context) => VehicleDetails(),
               ),
             );
           } else if (state is BookingFailed) {
@@ -276,7 +275,7 @@ class _CreateBookingState extends State<CreateBooking> {
                                   vehicleName: vehicleName.text,
                                   vehicleType: dropdownValue,
                                   mobileNumber: mobileNumber.text,
-                                 // parkingTime: parkingTime.text,
+                                  // parkingTime: parkingTime.text,
                                 ),
                               );
                             },

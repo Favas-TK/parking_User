@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:parking_user/bookingconfirmation/view/vehicle%20details.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DateTimes extends StatefulWidget {
   DateTimes({super.key});
@@ -79,7 +80,8 @@ class _DateTimesState extends State<DateTimes> {
 
   TextEditingController parkingTime = TextEditingController();
 
-  @override
+  final orderData = <String> [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,107 +123,118 @@ class _DateTimesState extends State<DateTimes> {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Container(
-            //   padding: EdgeInsets.symmetric(horizontal: 15),
-            //   width: double.infinity,
-            //   child: ElevatedButton(
-            //       onPressed: () {
-            //         _selectTime(context);
-            //       },
-            //       child: Text('Time picker')),
-            // ),
-            if (showTime)
-              Center(
-                child: Text(getTime(selectedTime)),
-              )
-            else
-              Card(
-                child: Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      width: double.infinity,
-                      child: MaterialButton(
-                        color: const Color.fromARGB(255, 235, 219, 174),
-                        onPressed: () {
-                          _selectedDateTime(context);
-                          showDateTime = true;
-                        },
-                        child: const Text('Selected Date and Time '),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 50.h,
-                    ),
-                    if (showDateTime)
-                      Text(
-                        getDateTime(),
-                      ),
-                    const SizedBox(
-                      height: 25,
-                    ),
-                    SizedBox(
-                      height: 40,
-                      child: TextFormField(
-                        keyboardType: TextInputType.number,
-                        controller: parkingTime,
-                        decoration: InputDecoration(
-                          labelText: 'Time needed for parking',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(14),
-                          ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 100.h,
+              ),
+              // Container(
+              //   padding: EdgeInsets.symmetric(horizontal: 15),
+              //   width: double.infinity,
+              //   child: ElevatedButton(
+              //       onPressed: () {
+              //         _selectTime(context);
+              //       },
+              //       child: Text('Time picker')),
+              // ),
+              if (showTime)
+                Center(
+                  child: Text(getTime(selectedTime)),
+                )
+              else
+                Card(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        width: double.infinity,
+                        child: MaterialButton(
+                          color: const Color.fromARGB(255, 235, 219, 174),
+                          onPressed: () {
+                            _selectedDateTime(context);
+                            showDateTime = true;
+                          },
+                          child: const Text('Selected Date and Time '),
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty ||
-                              !RegExp(r'^[+]*[(]{0,1}[0-9]{1-4}[)]{0-1}[-\s\./0-9]+$')
-                                  .hasMatch(value)) {
-                            return 'Invalid';
-                          } else {
-                            return null;
-                          }
-                        },
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 50.h,
+                      ),
+                      if (showDateTime)
+                        Text(
+                          getDateTime(),
+                        ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      SizedBox(
+                        height: 40,
+                        child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          controller: parkingTime,
+                          decoration: InputDecoration(
+                            labelText: 'Time needed for parking',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(14),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value!.isEmpty ||
+                                !RegExp(r'^[+]*[(]{0,1}[0-9]{1-4}[)]{0-1}[-\s\./0-9]+$')
+                                    .hasMatch(value)) {
+                              return 'Invalid';
+                            } else {
+                              return null;
+                            }
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
 
-            SizedBox(
-              height: 200.h,
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: SizedBox(
-                width: 300.h,
-                height: 50.h,
-                child: MaterialButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
+              SizedBox(
+                height: 200.h,
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: SizedBox(
+                  width: 300.h,
+                  height: 50.h,
+                  child: MaterialButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    highlightElevation: 0,
+                    textColor: Colors.white,
+                    color: const Color.fromARGB(255, 235, 219, 174),
+                    child: const Text(
+                      'Confirm',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onPressed: () async{
+      
+
+                      final pref = await SharedPreferences.getInstance();
+                      await pref.setString('date', selectedDate.toIso8601String());
+                      await pref.setString('datetime', selectedTime.toString());
+                      await pref.setString('duration', selectedDate.toIso8601String());
+
+
+                     await Navigator.push(context, MaterialPageRoute<dynamic>(
+                        builder: (context) => VehicleDetails(),));
+
+
+                    },
                   ),
-                  highlightElevation: 0,
-                  textColor: Colors.white,
-                  color: const Color.fromARGB(255, 235, 219, 174),
-                  child: const Text(
-                    'Confirm',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => VehicleDetails(),
-                      ),
-                    );
-                  },
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

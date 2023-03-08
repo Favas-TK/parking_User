@@ -14,7 +14,7 @@ dependencies:
   cloud_firestore: ^4.3.1
   convex_bottom_bar: ^3.1.0+1
   curved_navigation_bar: ^1.0.3
-  firebase_auth: ^4.1.0
+  firebase_auth: ^4.2.10
   firebase_core: ^2.1.1
   firebase_storage: ^11.0.10
   floating_bottom_bar: ^0.0.1
